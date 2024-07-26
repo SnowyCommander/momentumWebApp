@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Momentum</title>
+  </head>
+  <body>
+    <form id="page1" class="page">
+      <label for="nameInput">How can I call you?</label><br />
+      <input id="nameInput" name="nameInput" /><br />
+      <input type="submit" value="Continue" />
+    </form>
+
+    <div id="page2" class="page" style="display: none">
+      <div id="topRight" class="topRight">
+        <span id="timeMeasuredShown" class="topRight">
+          <span class="topRight">0</span><span class="topRight">m</span
+          ><span class="topRight"> focused today</span>
+        </span>
+        <span id="weatherShown" class="topRight">날씨</span>
+      </div>
+      <div id="nowTime" class="nowTime">00</div>
+      <div id="greetings" class="greetings">
+        <span class="greetings">Good morning,</span>
+        <span class="greetings"> JY!</span>
+      </div>
+      <label for="input" class="input">What is your focus for today?</label
+      ><br />
+      <input id="input" class="input" />
+      <div id="inspiringPhrase">"Embrace possibility"</div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>

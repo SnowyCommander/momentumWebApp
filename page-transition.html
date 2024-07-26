@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web Page</title>
+    <link rel="stylesheet" href="page-transition.css" />
+  </head>
+  <body>
+    <div id="page1" class="page">
+      <img
+        src="img/WhatIsYourFocusForToday.PNG"
+        alt="Background"
+        class="background"
+      />
+      <div class="content">
+        <h1>Hello! What's your name?</h1>
+        <input
+          type="text"
+          id="nameInput"
+          placeholder="Please enter your first name or the name you prefer to be called."
+        />
+        <button id="continueButton">Continue</button>
+        <p id="errorMessage" class="error"></p>
+      </div>
+    </div>
+
+    <div id="page2" class="page" style="display: none">
+      <img src="img/WhatsYourName.PNG" alt="Background" class="background" />
+      <div class="content">
+        <div id="greeting"></div>
+        <h2>What is your main goal for today?</h2>
+        <input type="text" id="taskInput" placeholder="Enter your task" />
+        <div id="taskList"></div>
+      </div>
+    </div>
+
+    <script src="page-transition.js"></script>
+  </body>
+</html>

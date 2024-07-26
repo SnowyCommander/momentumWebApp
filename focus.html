@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Web Page</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+      }
+      #nameInput,
+      #taskInput {
+        font-size: 1.5rem;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+      }
+      #greeting,
+      #taskPrompt,
+      #taskList {
+        font-size: 1.5rem;
+        margin: 10px 0;
+      }
+      .taskItem {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+      }
+      .taskItem input {
+        margin-right: 10px;
+      }
+      .taskItem label {
+        display: inline-block;
+        width: 100%;
+      }
+      .taskItem:hover label {
+        color: lightgray;
+      }
+      .taskItem:hover input,
+      .taskItem:hover span {
+        display: inline;
+        color: lightgray;
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="inputContainer">
+      <input type="text" id="nameInput" placeholder="What's your name?" />
+    </div>
+    <div id="taskPrompt" style="display: none">
+      What is your focus for today?
+    </div>
+    <input
+      type="text"
+      id="taskInput"
+      style="display: none"
+      placeholder="Enter your task"
+    />
+    <div id="taskList"></div>
+
+    <script>
+      const nameInput = document.getElementById("nameInput");
+      const taskPrompt = document.getElementById("taskPrompt");
+      const taskInput = document.getElementById("taskInput");
+      const taskList = document.getElementById("taskList");
+
+      nameInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const name = nameInput.value.trim();
+          if (name) {
+            document.getElementById(
+              "inputContainer"
+            ).innerHTML = `<div id="greeting">Good afternoon, ${name}</div>`;
+            taskPrompt.style.display = "block";
+            taskInput.style.display = "block";
+          }
+        }
+      });
+
+      taskInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const task = taskInput.value.trim();
+          if (task) {
+            const taskItem = document.createElement("div");
+            taskItem.className = "taskItem";
+            taskItem.innerHTML = `
+                        <input type="checkbox" />
+                        <label>${task}</label>
+                        <span class="setting"> (settings)</span>
+                    `;
+            taskList.appendChild(taskItem);
+            taskInput.value = "";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
